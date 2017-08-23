@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    FW
+ * @package     FW_Google_TagManager
+ * @copyright   Copyright (c) 2014 F+W, Inc. (http://www.fwcommunity.com)
+ */
+-->
+<config>
+    <modules>
+        <FW_Google_TagManager>
+            <version>1.0.0</version>
+        </FW_Google_TagManager>
+    </modules>
+    <global>
+        <models>
+            <fw_google_tagmanager>
+                <class>FW_Google_TagManager_Model</class>
+            </fw_google_tagmanager>
+        </models>
+        <blocks>
+            <fw_google_tagmanager>
+                <class>FW_Google_TagManager_Block</class>
+            </fw_google_tagmanager>
+        </blocks>
+        <helpers>
+            <fw_google_tagmanager>
+                <class>FW_Google_TagManager_Helper</class>
+            </fw_google_tagmanager>
+        </helpers>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <fw_google_tagmanager_controller_action_dispatch>
+                        <class>fw_google_tagmanager/observer</class>
+                        <method>onControllerAction</method>
+                    </fw_google_tagmanager_controller_action_dispatch>
+                </observers>
+            </controller_action_predispatch>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <fw_google_tagmanager_controller_action_layout_generate_blocks_after>
+                        <class>fw_google_tagmanager/observer</class>
+                        <method>onControllerActionBlocksAfter</method>
+                    </fw_google_tagmanager_controller_action_layout_generate_blocks_after>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+            <catalog_controller_product_view>
+                <observers>
+                    <fw_google_tagmanager_product_view>
+                        <class>fw_google_tagmanager/observer</class>
+                        <method>onProductView</method>
+                    </fw_google_tagmanager_product_view>
+                </observers>
+            </catalog_controller_product_view>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <fw_google_tagmanager_order_success>
+                        <class>fw_google_tagmanager/observer</class>
+                        <method>onOrderSuccessPageView</method>
+                    </fw_google_tagmanager_order_success>
+                </observers>
+            </checkout_onepage_controller_success_action>
+            <checkout_multishipping_controller_success_action>
+                <observers>
+                    <fw_google_tagmanager_order_success>
+                        <class>fw_google_tagmanager/observer</class>
+                        <method>onOrderSuccessPageView</method>
+                    </fw_google_tagmanager_order_success>
+                </observers>
+            </checkout_multishipping_controller_success_action>
+            <fw_google_tagmanager_to_html>
+                <observers>
+                    <fw_google_tagmanager_to_html>
+                        <class>fw_google_tagmanager/observer</class>
+                        <method>onGoogleTagManagerToHtml</method>
+                    </fw_google_tagmanager_to_html>
+                </observers>
+            </fw_google_tagmanager_to_html>
+        </events>
+    </frontend>
+</config>
